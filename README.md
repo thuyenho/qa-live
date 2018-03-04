@@ -4,28 +4,43 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 
-* Quick summary
+This project helps user create event room and ask questions with realtime interaction.
 
-  This project helps user create event room and ask questions wit realtime interaction. 
+### How do I run demo? ###
 
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+- You need to pull docker image by command: `docker pull thuyenho/qa-live:latest`
 
-### How do I get set up? ###
+- After you pulled docker image, create a docker container from image: `docker run -t -i -p 3000:3000 -p 1337:1337 thuyenho/qa-live:latest` 
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+- In container, run a script `./start-project.sh` to start API server and  Web App.
 
-### Contribution guidelines ###
+Until now, you have successfully all related services, there are 2 main page:
 
-* Writing tests
-* Code review
-* Other guidelines
+- Admin Login Page: http://localhost:3000/admin/login - Using a account (email: demo@demo.com, password: 123456).
 
-### Who do I talk to? ###
+- Audience Page: http://localhost:3000/ - Typing event code (e.g. m01) to enter event room.
 
-* Repo owner or admin
-* Other community or team contact
+### Tech stack
+
+- Programming language: Nodejs v9.6.1
+
+- Frameworks: [sailsjs](next.sailsjs.com), [reactjs](https://reactjs.org/), [material-ui](material-ui-next.com/), socker.io
+
+- Database: mongodb
+
+- Web development: ESlint, airbnb code style, [create-react-app](https://github.com/facebook/create-react-app)
+
+### System designs
+
+- Database schema relationship
+![Database schema relationship](.database_schema_replationships.png)
+
+- System
+
+### TODO ###
+
+- Using Redis for session and socket.io storages
+
+- Creating user database schema to store anonymous user infomation intead of using web session
+
+- Writing tests
