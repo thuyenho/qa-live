@@ -24,7 +24,7 @@ Until now, you have successfully all related services, there are 2 main page:
 
 - Programming language: Nodejs v9.6.1
 
-- Frameworks: [sailsjs](next.sailsjs.com), [reactjs](https://reactjs.org/), [material-ui](material-ui-next.com/), socker.io
+- Frameworks: [sailsjs](next.sailsjs.com), [reactjs](https://reactjs.org/), [redux](redux.js.org), [material-ui](material-ui-next.com/), socker.io
 
 - Database: mongodb
 
@@ -33,7 +33,7 @@ Until now, you have successfully all related services, there are 2 main page:
 ### System designs
 
 - Database schema relationship
-![Database schema relationship](.database_schema_replationships.png)
+![Database schema relationship](./database_schema_replationships.png)
 
 - System
 
