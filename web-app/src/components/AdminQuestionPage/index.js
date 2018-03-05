@@ -10,7 +10,6 @@ import {
   typeQuestion,
   submitQuestion,
   voteQuestion,
-  questionSortChanged,
   editQuestion,
   deleteQuestion,
   stareQuestion,
@@ -60,8 +59,7 @@ class AdminQuestionPage extends React.Component {
   }
 
   componentWillMount() {
-    const { match, getEventRoom, questionSortChanged } = this.props;
-    // questionSortChanged('createdAt');
+    const { match, getEventRoom } = this.props;
     getEventRoom(match.params.eventCode);
   }
 
@@ -168,7 +166,6 @@ const mapDispatchToProps = {
   submitQuestion,
   leaveEventRoom,
   voteQuestion,
-  questionSortChanged,
   editQuestion,
   deleteQuestion,
   stareQuestion,

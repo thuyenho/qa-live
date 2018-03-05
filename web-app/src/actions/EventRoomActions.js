@@ -15,7 +15,7 @@ import {
   RECEIVE_QUESTION_DELETED,
 } from './types';
 import client from '../client';
-import { openSnackbar } from './SnackbarActions';
+import { showError } from './CommonActions.js';
 
 export const checkingEventCode = () => ({
   type: CHECK_EVENT_CODE,
@@ -95,9 +95,8 @@ export const checkEventCode = code => (dispatch) => {
       checkEventCodeSuccess(dispatch);
     })
     .catch(({ response }) => {
-      const errorMsg = response.data.message ? response.data.message : 'An error occurs.';
+      showError(dispatch, response);
       checkEventCodeFailure(dispatch);
-      dispatch(openSnackbar(errorMsg));
     });
 };
 
@@ -121,8 +120,7 @@ export const submitQuestion = ({ content, author, eventCode }) => (dispatch) => 
       submitQuestionSuccess(dispatch);
     })
     .catch(({ response }) => {
-      const errorMsg = response.data.message ? response.data.message : 'An error occurs.';
-      dispatch(openSnackbar(errorMsg));
+      showError(dispatch, response);
     });
 };
 
@@ -151,8 +149,7 @@ export const editQuestion = ({ questionId, eventCode, content }) => (dispatch) =
       // editQuestionSuccess(dispatch);
     })
     .catch(({ response }) => {
-      const errorMsg = response.data.message ? response.data.message : 'An error occurs.';
-      dispatch(openSnackbar(errorMsg));
+      showError(dispatch, response);
     });
 };
 
@@ -162,8 +159,7 @@ export const deleteQuestion = ({ questionId, eventCode }) => (dispatch) => {
       //deleteQuestionQuestionSuccess(dispatch);
     })
     .catch(({ response }) => {
-      const errorMsg = response.data.message ? response.data.message : 'An error occurs.';
-      dispatch(openSnackbar(errorMsg));
+      showError(dispatch, response);
     });
 };
 
@@ -173,8 +169,7 @@ export const stareQuestion = ({ questionId, eventCode, stared }) => (dispatch) =
       // apiSuccess(dispatch);
     })
     .catch(({ response }) => {
-      const errorMsg = response.data.message ? response.data.message : 'An error occurs.';
-      dispatch(openSnackbar(errorMsg));
+      showError(dispatch, response);
     });
 };
 

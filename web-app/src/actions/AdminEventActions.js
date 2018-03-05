@@ -5,7 +5,7 @@ import {
   CREATE_EVENT_SUCCESS,
 } from './types';
 import client from '../client';
-import { openSnackbar } from './SnackbarActions';
+import { showError } from './CommonActions.js';
 
 export const getEventListSuccess = (dispatch, data) => {
   dispatch({
@@ -30,8 +30,7 @@ export const getEventList = () => async (dispatch) => {
       getEventListSuccess(dispatch, response.data);
     })
     .catch(({ response }) => {
-      const errorMsg = response.data.message ? response.data.message : 'An error occurs.';
-      dispatch(openSnackbar(errorMsg));
+      showError(dispatch, response);
     });
 };
 
@@ -44,7 +43,6 @@ export const createEvent = ({ name, code, startDate, endDate }) => async (dispat
       createSuccess(dispatch, response.data);
     })
     .catch(({ response }) => {
-      const errorMsg = response.data.message ? response.data.message : 'An error occurs.';
-      dispatch(openSnackbar(errorMsg));
+      showError(dispatch, response);
     });
 };
